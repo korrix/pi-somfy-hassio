@@ -1,0 +1,22 @@
+name: "Somfy shutters"
+description: "Operate somfy shutters"
+version: "1.0.0"
+slug: "somfy"
+arch:
+  - amd64
+  - aarch64
+ports:
+  8888/tcp: 8888
+  80/tcp: 9909
+map:
+  - config:rw
+gpio: true
+privileged:
+  - SYS_RAWIO
+full_access: true
+devices:
+  - /dev/mem
+  - /dev/vcio
+  - /dev/gpiochip0
+services:
+  - mqtt:want
